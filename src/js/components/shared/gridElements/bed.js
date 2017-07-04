@@ -6,16 +6,12 @@ export default class Bed extends React.Component {
   constructor(props) {
     super(props);
   }
-
-  getRandomVeggie() {
-    return Math.floor(Math.random() * 255);
-  }
-
+  
   generateRow(xVal, yVal) {
     return (
       <g>
         <rect class="cell" x={xVal+this.props.xVal+5} y={yVal+this.props.yVal+5} width="100" height="100" />
-        <SubGrid dimension={4} xVal={xVal+this.props.xVal+5} yVal={yVal+this.props.yVal+5}/>
+        <SubGrid dimension={2} xVal={xVal+this.props.xVal+5} yVal={yVal+this.props.yVal+5}/>
       </g>
     )
   }

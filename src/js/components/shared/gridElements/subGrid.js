@@ -1,68 +1,37 @@
 import React from "react";
+const Settings = require('Settings');
 
-export default class TwyByTwo extends React.Component {
+export default class SubGrid extends React.Component {
   constructor(props) {
     super(props);
 
-    this.plants = [
-      {
-        name: "broccoli",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/broccoli.svg",
-        area: 1
-      },
-      {
-        name: "corn",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/corn.svg",
-        area: 1
-      },
-      {
-        name: "peas",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/peas.svg",
-        area: 3
-      },
-      {
-        name: "tomato",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/tomato.svg",
-        area: 1
-      },
-      {
-        name: "lettuce",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/lettuce.svg",
-        area: 2
-      }
-    ]
-
     this.state = {
-      plant: this.getRandomPlant()
+      plant: this.props.plant
     }
   }
 
-  getRandomPlant() {
-    return this.plants[Math.floor(Math.random() * this.plants.length)];
-  }
-
-  generateRow(xVal, yVal) {
+  generateRow(area, xVal, yVal) {
     return (
       <g>
-        <rect class="subcell" x={xVal+this.props.xVal} y={yVal+this.props.yVal} width={100/this.props.dimension} height={100/this.props.dimension} rx="8" ry="8"/>
-        <image href={this.state.plant.image} x={xVal+this.props.xVal} y={yVal+this.props.yVal} width={100/this.props.dimension} height={100/this.props.dimension}/>
+        <rect class="subcell" x={xVal} y={yVal} width={100/area} height={100/area}/>
+        <image href={Settings.assetServer + this.state.plant.image} x={xVal} y={yVal} width={100/area} height={100/area}/>
       </g>
     )
   }
 
-  generateColumn(rowNum, xVal) {
+  generateColumn(area, xVal) {
     let rowArr = [];
-    for (var i = 0; i < rowNum; i++) {
-      rowArr.push(this.generateRow(xVal, i*(100/this.props.dimension)));
+    for (var i = 0; i < area; i++) {
+      rowArr.push(this.generateRow(area, xVal, this.props.yVal + (100/area)*i));
     }
     return rowArr
   }
 
-  generateGrid(rowNum, columnNum) {
-
+  generateGrid() {
+    let area = this.state.plant.area
     let columnArr = [];
-    for (var i = 0; i < columnNum; i++) {
-      columnArr.push(this.generateColumn(rowNum, i*(100/this.props.dimension)));
+    for (var i = 0; i < area; i++) {
+      columnArr.push(this.generateColumn(area, this.props.xVal + (100/area)*i));
     }
     return columnArr;
   }
@@ -70,7 +39,7 @@ export default class TwyByTwo extends React.Component {
   render() {
     return (
       <g>
-        {this.generateGrid(this.state.plant.area, this.state.plant.area)}
+        {this.generateGrid()}
       </g>
     )
   }

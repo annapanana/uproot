@@ -1,13 +1,3 @@
 {
-  "webServer": "http://cue-website-stage.s3-website-us-west-2.amazonaws.com",
-  "assetServer": "https://d3jz5yl8ad4hn8.cloudfront.net",
-  "supportEmail": "hello@cue4success.com",
-  "social": {
-    "li": "https://www.linkedin.com/company/10806125?trk=prof-exp-company-name",
-    "tw": "http://twitter.com/cue4success",
-    "fb": "http://www.facebook.com/CUE-702343683252974/",
-    "skype": "http://skype.com",
-    "blog": "http://medium.com/@cue4success",
-    "gplus": "http://plus.google.com/115548947626461241171/"
-  }
+  "assetServer": "https://s3-us-west-2.amazonaws.com/uproot/"
 }

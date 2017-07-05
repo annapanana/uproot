@@ -1,35 +1,33 @@
 import React from "react";
-
 import SubGrid from './subGrid.js';
 
 export default class Bed extends React.Component {
   constructor(props) {
     super(props);
-
     this.plants = [
       {
         name: "broccoli",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/broccoli.svg",
+        image: `broccoli_icon.svg`,
         area: 1
       },
       {
         name: "corn",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/corn.svg",
+        image: "corn_icon.svg",
         area: 1
       },
       {
         name: "peas",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/peas.svg",
+        image: "peas_icon.svg",
         area: 3
       },
       {
         name: "tomato",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/tomato.svg",
+        image: "tomato_icon.svg",
         area: 1
       },
       {
         name: "lettuce",
-        image: "https://s3-us-west-2.amazonaws.com/uproot/lettuce.svg",
+        image: "lettuce_icon.svg",
         area: 2
       }
     ]

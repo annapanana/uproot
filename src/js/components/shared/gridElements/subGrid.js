@@ -53,7 +53,9 @@ export default class SubGrid extends React.Component {
     return (
       <g>
         {this.generateGrid()}
-        <GridModal showModal={this.state.showModal} close={this.closeModal}/>
+        <GridModal showModal={this.state.showModal}
+          close={this.closeModal}
+          plant={this.state.plant}/>
       </g>
     )
   }

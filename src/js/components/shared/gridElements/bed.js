@@ -4,6 +4,34 @@ import SubGrid from './subGrid.js';
 export default class Bed extends React.Component {
   constructor(props) {
     super(props);
+
+    this.plots = [
+      {
+        plot_id: 0,
+        bed_id: 100,
+        notes: ""
+      },
+      {
+        plot_id: 0,
+        bed_id: 200,
+        notes: ""
+      },
+      {
+        plot_id: 0,
+        bed_id: 300,
+        notes: ""
+      },
+      {
+        plot_id: 0,
+        bed_id: 400,
+        notes: ""
+      },
+      {
+        plot_id: 0,
+        bed_id: 500,
+        notes: ""
+      }
+    ]
     this.plants = [
       {
         name: "broccoli",

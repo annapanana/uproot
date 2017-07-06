@@ -51,13 +51,19 @@ export default class SubGrid extends React.Component {
   }
 
   render() {
+    const plot = {
+      id: this.props.plot_id,
+      bed_id: this.props.bed_id,
+      notes: "A tally of notes about this plot"
+    }
+
     return (
       <g>
         {this.generateGrid()}
         <GridModal showModal={this.state.showModal}
           close={this.closeModal}
           plant={this.state.plant}
-          plot={this.props.plot_id}
+          plot={plot}
           />
       </g>
     )

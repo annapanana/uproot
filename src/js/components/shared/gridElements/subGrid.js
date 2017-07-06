@@ -1,20 +1,33 @@
 import React from "react";
 const Settings = require('Settings');
+import GridModal from "./gridModal.js";
+
 
 export default class SubGrid extends React.Component {
   constructor(props) {
     super(props);
+    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this);
 
     this.state = {
-      plant: this.props.plant
+      plant: this.props.plant,
+      showModal: false
     }
+  }
+
+  openModal() {
+    this.setState({ showModal: true });
+  }
+
+  closeModal() {
+    this.setState({ showModal: false });
   }
 
   generateRow(area, xVal, yVal) {
     return (
       <g>
         <rect class="subcell" x={xVal} y={yVal} width={100/area} height={100/area}/>
-        <image href={Settings.assetServer + this.state.plant.image} x={xVal} y={yVal} width={100/area} height={100/area}/>
+        <image onClick={this.openModal.bind(this)} href={Settings.assetServer + this.state.plant.image} x={xVal} y={yVal} width={100/area} height={100/area}/>
       </g>
     )
   }
@@ -40,6 +53,7 @@ export default class SubGrid extends React.Component {
     return (
       <g>
         {this.generateGrid()}
+        <GridModal showModal={this.state.showModal} close={this.closeModal}/>
       </g>
     )
   }

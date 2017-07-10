@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.text('plant_image_url');
     table.integer('area');
     table.integer('days_to_harvest');
-    table.text('harvest_information');
+    table.text('harvest_info');
     table.text('family');
     table.text('notes');
     table.text('planting_info')

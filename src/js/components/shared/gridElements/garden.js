@@ -1,7 +1,7 @@
 import React from "react";
 import '../../../../sass/components/shared/garden.sass'
-
 import Bed from './bed.js'
+import Snap from 'imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js';
 
 export default class Garden extends React.Component {
   constructor(props) {

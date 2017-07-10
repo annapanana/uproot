@@ -6,10 +6,6 @@ export default class AddPlantModal extends React.Component {
     super(props);
   }
 
-  saveAndClose() {
-
-  }
-
   render() {
     return (
       <Modal show={this.props.showModal} onHide={this.props.close.bind(this)}>

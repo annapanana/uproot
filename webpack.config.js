@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Settings = require("./settings.json");
-console.log(Settings);
 
 const sassLoaders = [
   'css-loader',

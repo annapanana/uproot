@@ -1,6 +1,8 @@
 import React from "react";
 import '../../../sass/components/shared/header.sass'
 import AddPlantModal from "../layout/AddPlantModal.js"
+import {Link} from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 export default class Header extends React.Component {
   constructor() {
@@ -25,8 +27,8 @@ export default class Header extends React.Component {
   render() {
     return (
       <div class="header-wrap">
-        <button onClick={this.openAddPlantModal.bind(this)}>Add Plant</button>
-        <button>View All Plants</button>
+        <Button bsStyle="primary" onClick={this.openAddPlantModal.bind(this)}>Add Plant</Button>
+        <Link to="/plants">View All Plants</Link>
         <AddPlantModal
           showModal={this.state.showAddPlantModal}
           close={this.closeAddPlantModal}/>

@@ -1,15 +1,27 @@
 import dispatcher from "../dispatcher";
 import * as Helpers from "../helpers";
 
+export function AddPlotPlant(data) {
+  // Data: bed_id, plot_bed_id, plant_id
+  Helpers.restCall(
+    'plants_plots',
+    'POST',
+    data,
+    'PLOT_SERVICE_START',
+    'PLOT_PLANT_ADDED',
+    'PLOT_SERVICE_ERROR'
+  )
+}
+
 export function UpdatePlotPlant(data) {
   // Data: bed_id, plot_bed_id, plant_id
   Helpers.restCall(
-    'plots_plants',
+    'plants_plots',
     'UPDATE',
     data,
-    'START_MSG',
-    'SUCCESS_MSG',
-    'ERROR_MSG'
+    'PLOT_SERVICE_START',
+    'PLOT_PLANT_UPDATED',
+    'PLOT_SERVICE_ERROR'
   )
 }
 
@@ -19,9 +31,9 @@ export function AddPlotNote(data) {
     'notes',
     'POST',
     data,
-    'START_MSG',
-    'SUCCESS_MSG',
-    'ERROR_MSG'
+    'PLOT_SERVICE_START',
+    'PLOT_NOTE_ADDED',
+    'PLOT_SERVICE_ERROR'
   )
 }
 
@@ -31,8 +43,8 @@ export function AddPlotImage(data) {
     'images',
     'POST',
     data,
-    'START_MSG',
-    'SUCCESS_MSG',
-    'ERROR_MSG'
+    'PLOT_SERVICE_START',
+    'PLOT_IMAGE_ADDED',
+    'PLOT_SERVICE_ERROR'
   )
 }

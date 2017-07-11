@@ -6,8 +6,8 @@ export function addPlant(data) {
     'plants',
     'POST',
     data,
-    'START_MSG',
-    'SUCCESS_MSG',
+    'PLANT_SERVICE_START',
+    'PLANT_ADDED',
     'ERROR_MSG'
   )
 }
@@ -18,8 +18,8 @@ export function updatePlant(data) {
     'plants',
     'PATCH',
     data,
-    'START_MSG',
-    'SUCCESS_MSG',
+    'PLANT_SERVICE_START',
+    'PLANT_UPDATED',
     'ERROR_MSG'
   )
 }
@@ -30,8 +30,8 @@ export function deletePlant(data) {
     'plants',
     'PATCH',
     data,
-    'START_MSG',
-    'SUCCESS_MSG',
+    'PLANT_SERVICE_START',
+    'PLANT_DELETED',
     'ERROR_MSG'
   )
 }
@@ -42,8 +42,8 @@ export function addPlantImage(data) {
     'images',
     'POST',
     data,
-    'START_MSG',
-    'SUCCESS_MSG',
+    'PLANT_SERVICE_START',
+    'PLANT_IMAGE_ADDED',
     'ERROR_MSG'
   )
 }
@@ -54,8 +54,8 @@ export function addPlantTip(data) {
     'tips',
     'POST',
     data,
-    'START_MSG',
-    'SUCCESS_MSG',
+    'PLANT_SERVICE_START',
+    'PLANT_TIP_ADDED',
     'ERROR_MSG'
   )
 }

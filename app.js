@@ -9,7 +9,6 @@ const bodyParser = require('body-parser');
 const server = require("http").Server(app);
 
 app.use(express.static(path.join('public')));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -18,9 +17,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const plots = require('./routes/plots');
 const plants = require('./routes/plants');
+const images = require('./routes/images');
+const tips = require('./routes/tips');
+const plants_plots = require('./routes/plants_plots.js');
 
 app.use('/api/plots', plots);
 app.use('/api/plants', plants);
+app.use('/api/images', images);
+app.use('/api/tips', tips);
+app.use('/api/plants_plots', plants_plots);
 
 // Wildcard Route, Sends the Index back incase of someone being where they shouldn't.
 app.use('*', function (req, res, next) {

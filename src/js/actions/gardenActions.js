@@ -1,19 +1,29 @@
 import dispatcher from "../dispatcher";
+import * as Helpers from "../helpers";
 
-export function UpdatePlot(data) {
-  dispatcher.dispatch({
-    type: "UPDATE_PLANT_IN_PLOT",
+export function UpdatePlotPlant(data) {
+  // Data: bed_id, plot_bed_id, plant_id
+  Helpers.restCall(
+    'plots_plants',
+    'UPDATE',
     data
-  });
+  )
+}
 
-  dispatcher.dispatch({
-    type: "ADD_PLOT_NOTE",
+export function AddPlotNote(data) {
+  // Data: bed_id, plot_id, notes
+  Helpers.restCall(
+    'notes',
+    'POST',
     data
-  });
+  )
+}
 
-  dispatcher.dispatch({
-    type: "ADD_PLOT_IMAGE",
+export function AddPlotImage(data) {
+  // Data: bed_id, plot_id, plant_id, image_url, image_description
+  Helpers.restCall(
+    'images',
+    'POST',
     data
-  });
-
+  )
 }

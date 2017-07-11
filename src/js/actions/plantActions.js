@@ -1,34 +1,37 @@
 import dispatcher from "../dispatcher";
+import * as Helpers from "../helpers";
 
 export function AddPlant(data) {
-  dispatcher.dispatch({
-    type: "ADD_PLANT",
+  // Data: area, days_to_harvest, family, harvest_info, notes, plant_image_url, plant_name, planting_info
+  Helpers.restCall(
+    'plants',
+    'POST',
     data
-  });
+  )
 }
 
 export function UpdatePlant(data) {
-  dispatcher.dispatch({
-    type: "UPDATE_PLANT",
+  // Data: area, days_to_harvest, family, harvest_info, notes, plant_image_url, plant_name, planting_info
+  Helpers.restCall(
+    'plants',
+    'PATCH',
     data
-  });
+  )
 }
 
 export function DeletePlant(data) {
-  dispatcher.dispatch({
-    type: "DELETE_PLANT",
+  // Data: plant_id
+  Helpers.restCall(
+    'plants',
+    'PATCH',
     data
-  });
+  )
+}
 
-  export function DeletePlant(data) {
-    dispatcher.dispatch({
-      type: "ADD_PLANT_IMAGE",
-      data
-    });
+export function AddPlantImage(data) {
 
-  export function DeletePlant(data) {
-    dispatcher.dispatch({
-      type: "ADD_PLANT_TIP",
-      data
-    });
+}
+
+export function AddPlantTip(data) {
+
 }

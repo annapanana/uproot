@@ -21,6 +21,7 @@
     "flux": "^3.1.2",
     "jquery": "^3.2.1",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
     "pg": "^6.4.0",
     "postcss-loader": "^2.0.5",
     "react": "^15.5.4",

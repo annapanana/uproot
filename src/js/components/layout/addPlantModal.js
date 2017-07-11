@@ -1,9 +1,31 @@
 import React from "react";
 import {Modal} from 'react-bootstrap';
+import * as PlantActions from "../../actions/PlantActions";
 
 export default class AddPlantModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      formData: {
+        plant_name: "Temp",
+        family: "Temp",
+        plant_image_url: "temp",
+        area: 0,
+        planting_info: "temp",
+        harvest_info: "temp",
+        days_to_harvest: 0,
+        notes: "temp"
+      }
+    }
+  }
+
+  handleChange(other, event) {
+    this.state.formData[other] = event.target.value;
+  }
+
+  saveData() {
+    PlantActions.addPlant(this.state.formData);
+    this.props.close.bind(this);
   }
 
   render() {
@@ -15,7 +37,7 @@ export default class AddPlantModal extends React.Component {
           <Modal.Body>
             <div class="row">
               Plant Name:
-              <input type="text" name="plant-name"/>
+              <input type="text" name="plant-name" value={this.state.formData.plantName} onChange={this.handleChange.bind(this, "plantName")}/>
             </div>
             <div class="row">
               Family:
@@ -39,16 +61,8 @@ export default class AddPlantModal extends React.Component {
               <input type="text" name="planting-info"/>
             </div>
             <div class="row">
-              Days To Harvest Info:
-              <input type="text" name="days-to-harvest-info"/>
-            </div>
-            <div class="row">
-              Min Days To Harvest:
-              <input type="number" name="min-days-to-harvest"/>
-            </div>
-            <div class="row">
-              Max Days To Harvest:
-              <input type="number" name="max-days-to-harvest"/>
+              Days To Harvest:
+              <input type="number" name="days-to-harvest"/>
             </div>
             <div class="row">
               Harvest Info:
@@ -60,7 +74,7 @@ export default class AddPlantModal extends React.Component {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <button onClick={this.props.close.bind(this)}>Save and Close</button>
+            <button onClick={this.saveData.bind(this)}>Save and Close</button>
           </Modal.Footer>
         </Modal>
     )

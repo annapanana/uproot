@@ -15,4 +15,18 @@ router.get('/', (req, res, next) => {
     })
 })
 
+router.post('/', (req, res, next) => {
+  console.log("POST!");
+  knex('plants')
+    .then(results => {
+      if (results.length === 0) {
+        return res.send(404);
+      }
+      res.status(200).send(results)
+    })
+    .catch(error => {
+      return next(error)
+    })
+})
+
 module.exports = router;

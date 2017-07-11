@@ -6,7 +6,10 @@ export function UpdatePlotPlant(data) {
   Helpers.restCall(
     'plots_plants',
     'UPDATE',
-    data
+    data,
+    'START_MSG',
+    'SUCCESS_MSG',
+    'ERROR_MSG'
   )
 }
 
@@ -15,15 +18,21 @@ export function AddPlotNote(data) {
   Helpers.restCall(
     'notes',
     'POST',
-    data
+    data,
+    'START_MSG',
+    'SUCCESS_MSG',
+    'ERROR_MSG'
   )
 }
 
 export function AddPlotImage(data) {
-  // Data: bed_id, plot_id, plant_id, image_url, image_description
+  // Data: bed_id, plot_id, image_url, image_description
   Helpers.restCall(
     'images',
     'POST',
-    data
+    data,
+    'START_MSG',
+    'SUCCESS_MSG',
+    'ERROR_MSG'
   )
 }

@@ -7,7 +7,7 @@ export function getPlants() {
     {},
     'PLANT_SERVICE_START',
     'PLANTS_LOADED',
-    "PLANT_SERVICE_ERROR"
+    'PLANT_SERVICE_ERROR'
   )
 }
 
@@ -18,7 +18,7 @@ export function addPlant(data) {
     'POST',
     data,
     'PLANT_SERVICE_START',
-    'PLANT_ADDED',
+    'PLANTS_LOADED',
     'PLANT_SERVICE_ERROR'
   )
 }
@@ -30,7 +30,7 @@ export function updatePlant(data) {
     'PATCH',
     data,
     'PLANT_SERVICE_START',
-    'PLANT_UPDATED',
+    'PLANTS_LOADED',
     'PLANT_SERVICE_ERROR'
   )
 }
@@ -42,7 +42,7 @@ export function deletePlant(data) {
     'PATCH',
     data,
     'PLANT_SERVICE_START',
-    'PLANT_DELETED',
+    'PLANTS_LOADED',
     'PLANT_SERVICE_ERROR'
   )
 }

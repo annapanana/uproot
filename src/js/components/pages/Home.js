@@ -1,10 +1,12 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import '../../../sass/components/pages/home.sass';
-
+import AddPlantModal from "../layout/AddPlantModal.js"
 import * as PlantActions from "../../actions/PlantActions";
 import PlantStore from "../../stores/PlantStore";
 import Garden from '../shared/gridElements/Garden';
+import Plants from "../layout/Plants"
+import { Button } from 'react-bootstrap';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -13,11 +15,16 @@ export default class Home extends React.Component {
     this.serviceStart = this.serviceStart.bind(this);
     this.serviceError = this.serviceError.bind(this);
     this.refreshPlants = this.refreshPlants.bind(this);
+    this.togglePlantsDisplay = this.togglePlantsDisplay.bind(this);
+    this.closeAddPlantModal = this.closeAddPlantModal.bind(this);
+    this.openAddPlantModal = this.openAddPlantModal.bind(this);
 
     this.state = {
       isLoading: true,
       loadingError: false,
-      plants: []
+      plants: [],
+      displayPlants: false,
+      showAddPlantModal: false
     }
   }
 
@@ -28,7 +35,9 @@ export default class Home extends React.Component {
   }
 
   componentWillUnmount() {
-
+    PlantStore.removeListener("plant_service_start", this.serviceStart);
+    PlantStore.removeListener("plant_serice_error", this.serviceError);
+    PlantStore.removeListener("plants_loaded", this.refreshPlants);
   }
 
   componentDidMount() {
@@ -50,7 +59,18 @@ export default class Home extends React.Component {
       loadingError: false,
       plants: PlantStore.getPlants()
     });
+  }
 
+  togglePlantsDisplay() {
+    this.setState({displayPlants:!this.state.displayPlants})
+  }
+
+  openAddPlantModal() {
+    this.setState({showAddPlantModal:true});
+  }
+
+  closeAddPlantModal() {
+    this.setState({showAddPlantModal:false});
   }
 
   render() {
@@ -61,9 +81,20 @@ export default class Home extends React.Component {
             this.state.isLoading ?
               <div>Loading Widget</div>
             :
-              <Garden plants={this.state.plants}/>
+              <div>
+                <Button bsStyle="primary" onClick={this.togglePlantsDisplay.bind(this)}>Show Plants</Button>
+                <Button bsStyle="primary" onClick={this.openAddPlantModal.bind(this)}>Add Plant</Button>
+                {
+                  this.state.displayPlants &&
+                  <Plants />
+                }
+                <Garden plants={this.state.plants}/>
+              </div>
           }
         </div>
+        <AddPlantModal
+          showModal={this.state.showAddPlantModal}
+          close={this.closeAddPlantModal}/>
       </div>
     );
   }

@@ -30,28 +30,9 @@ class PlantStore extends EventEmitter {
         break;
       }
       case "PLANTS_LOADED": {
-        console.log(action.data);
         this.error = {};
         this.plants = action.data;
         this.emit("plants_loaded");
-        break;
-      }
-      case "PLANT_ADDED": {
-        this.error = {};
-        this.plants = action.data;
-        this.emit("plant_added");
-        break;
-      }
-      case "PLANT_UPDATED": {
-        this.error = {};
-        this.plants = action.data;
-        this.emit("plant_updated");
-        break;
-      }
-      case "PLANT_DELETED": {
-        this.error = {};
-        this.plants = action.data;
-        this.emit("plant_deleted");
         break;
       }
       case "PLANT_IMAGE_ADDED": {

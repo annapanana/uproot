@@ -1,6 +1,17 @@
 import dispatcher from "../dispatcher";
 import * as Helpers from "../helpers";
 
+export function GetPlotsPlants() {
+  Helpers.restCall(
+    'plants_plots',
+    'GET',
+    data,
+    'PLOT_SERVICE_START',
+    'RECEIVED_PLOTS_PLANTS',
+    'PLOT_SERVICE_ERROR'
+  )
+}
+
 export function AddPlotPlant(data) {
   // Data: bed_id, plot_bed_id, plant_id
   Helpers.restCall(

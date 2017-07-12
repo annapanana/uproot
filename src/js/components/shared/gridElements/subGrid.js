@@ -28,7 +28,7 @@ export default class SubGrid extends React.Component {
     return (
       <g>
         <rect class="subcell" x={xVal} y={yVal} width={100/area} height={100/area}/>
-        <image onClick={this.openModal.bind(this)} href={Settings.assetServer + this.state.plant.image} x={xVal} y={yVal} width={100/area} height={100/area}/>
+        <image onClick={this.openModal.bind(this)} href={Settings.assetServer + this.state.plant.plant_image_url} x={xVal} y={yVal} width={100/area} height={100/area}/>
       </g>
     )
   }

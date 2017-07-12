@@ -7,6 +7,7 @@ class PlantStore extends EventEmitter {
     this.plants = [];
     this.plantImages = [];
     this.plantTips = [];
+    this.error = {};
   }
 
   getPlants() {
@@ -26,6 +27,13 @@ class PlantStore extends EventEmitter {
       case "PLANT_SERVICE_START": {
         this.error = {};
         this.emit("plant_service_start");
+        break;
+      }
+      case "PLANTS_LOADED": {
+        console.log(action.data);
+        this.error = {};
+        this.plants = action.data;
+        this.emit("plants_loaded");
         break;
       }
       case "PLANT_ADDED": {
@@ -59,7 +67,7 @@ class PlantStore extends EventEmitter {
         break;
       }
       case "PLANT_SERVICE_ERROR": {
-        {xhr: action.xhr, textStatus: action.textStatus, errorThrown: action.errorThrown};
+        this.error = {xhr: action.xhr, textStatus: action.textStatus, errorThrown: action.errorThrown};
         this.emit("plant_serice_error");
         break;
       }

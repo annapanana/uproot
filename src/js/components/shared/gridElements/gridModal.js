@@ -23,7 +23,7 @@ export default class GridModal extends React.Component {
     return (
       <Modal show={this.props.showModal} onHide={this.props.close.bind(this)}>
           <Modal.Header closeButton>
-            <Modal.Title>{plant.name}, {plant.family}</Modal.Title>
+            <Modal.Title>{plant.plant_name}, {plant.family}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {

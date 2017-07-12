@@ -7,6 +7,7 @@ class GardenStore extends EventEmitter {
     this.plots = [];
     this.plotNotes = [];
     this.plotImages = [];
+    this.error = {};
   }
 
   getAllPlots() {
@@ -63,7 +64,7 @@ class GardenStore extends EventEmitter {
         break;
       }
       case "PLOT_SERVICE_ERROR": {
-        {xhr: action.xhr, textStatus: action.textStatus, errorThrown: action.errorThrown};
+        this.error = {xhr: action.xhr, textStatus: action.textStatus, errorThrown: action.errorThrown};
         this.emit("plot_serice_error");
         break;
       }

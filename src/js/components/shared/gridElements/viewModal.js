@@ -18,15 +18,15 @@ export default class ViewModay extends React.Component {
         <br/>
         Plot Notes: {plot.notes}
         <br/>
-        Planting Information: {plant.planting_information}
+        Planting Information: {plant.planting_info}
         <br/>
         Days to Harvest: {plant.days_to_harvest}
         <br/>
-        Harvest Information: {plant.harvest_information}
+        Harvest Information: {plant.harvest_info}
         <br/>
         Plant Notes: {plant.notes}
         <br/>
-        <img src={Settings.assetServer + plant.image}/>
+        <img src={Settings.assetServer + plant.plant_image_url}/>
         <button onClick={this.props.toggleEdit.bind(this, true)}>Edit</button>
       </div>
     )

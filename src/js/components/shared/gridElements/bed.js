@@ -5,11 +5,15 @@ import PlantStore from '../../../stores/PlantStore';
 export default class Bed extends React.Component {
   constructor(props) {
     super(props);
-    this.plants = PlantStore.getPlants();
+
+    this.state = {
+      plants: this.props.plants
+    }
   }
 
+
   getRandomPlant() {
-    return this.plants[Math.floor(Math.random() * this.plants.length)];
+    return this.state.plants[Math.floor(Math.random() * this.state.plants.length)];
   }
 
   generateRow(xVal, yVal, plotVal) {

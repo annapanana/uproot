@@ -20,11 +20,7 @@ import Home from './components/pages/Home'
 ReactDOM.render((
   <Router>
     <div>
-      <Header/>
-
       <Route exact path="/" component={Home}/>
-
-      <Footer/>
     </div>
   </Router>
 ), document.getElementById('app'));

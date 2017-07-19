@@ -7,6 +7,8 @@ import PlantStore from "../../stores/PlantStore";
 import Garden from '../shared/gridElements/Garden';
 import Plants from "../layout/Plants"
 import { Button } from 'react-bootstrap';
+import AnimateHeight from 'react-animate-height';
+import MorphTest from '../../animtions/morphTest.js'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -18,6 +20,9 @@ export default class Home extends React.Component {
     this.togglePlantsDisplay = this.togglePlantsDisplay.bind(this);
     this.closeAddPlantModal = this.closeAddPlantModal.bind(this);
     this.openAddPlantModal = this.openAddPlantModal.bind(this);
+
+    //SVG TEST
+    this.morphTest = new MorphTest();
 
     this.state = {
       isLoading: true,
@@ -82,12 +87,13 @@ export default class Home extends React.Component {
               <div>Loading Widget</div>
             :
               <div>
-                <Button bsStyle="primary" onClick={this.togglePlantsDisplay.bind(this)}>Show Plants</Button>
+                <Button bsStyle="primary" onClick={this.togglePlantsDisplay.bind(this)}>{(this.state.displayPlants?"Hide":"Show")} Plants</Button>
                 <Button bsStyle="primary" onClick={this.openAddPlantModal.bind(this)}>Add Plant</Button>
-                {
-                  this.state.displayPlants &&
-                  <Plants />
-                }
+                <AnimateHeight
+                  duration={ 500 }
+                  height={ this.state.displayPlants?"100":"0" }>
+                  <Plants plants={this.state.plants}/>
+                </AnimateHeight>
                 <Garden plants={this.state.plants}/>
               </div>
           }
@@ -95,6 +101,7 @@ export default class Home extends React.Component {
         <AddPlantModal
           showModal={this.state.showAddPlantModal}
           close={this.closeAddPlantModal}/>
+        <MorphTest/>
       </div>
     );
   }

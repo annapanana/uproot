@@ -1,12 +1,10 @@
 import React from "react";
 
-export default class MorphTest extends React.Component {
+export default class AnimationMotionTest extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isCarrot: false
-    }
+
   }
 
   componentDidMount() {

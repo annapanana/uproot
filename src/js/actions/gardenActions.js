@@ -1,18 +1,18 @@
 import dispatcher from "../dispatcher";
 import * as Helpers from "../helpers";
 
-export function GetPlotsPlants() {
+export function getPlotsPlants() {
   Helpers.restCall(
     'plants_plots',
     'GET',
-    data,
+    {},
     'PLOT_SERVICE_START',
     'RECEIVED_PLOTS_PLANTS',
     'PLOT_SERVICE_ERROR'
   )
 }
 
-export function AddPlotPlant(data) {
+export function addPlotPlant(data) {
   // Data: bed_id, plot_bed_id, plant_id
   Helpers.restCall(
     'plants_plots',
@@ -24,7 +24,7 @@ export function AddPlotPlant(data) {
   )
 }
 
-export function UpdatePlotPlant(data) {
+export function updatePlotPlant(data) {
   // Data: bed_id, plot_bed_id, plant_id
   Helpers.restCall(
     'plants_plots',
@@ -36,7 +36,7 @@ export function UpdatePlotPlant(data) {
   )
 }
 
-export function AddPlotNote(data) {
+export function addPlotNote(data) {
   // Data: bed_id, plot_id, notes
   Helpers.restCall(
     'notes',
@@ -48,7 +48,7 @@ export function AddPlotNote(data) {
   )
 }
 
-export function AddPlotImage(data) {
+export function addPlotImage(data) {
   // Data: bed_id, plot_id, image_url, image_description
   Helpers.restCall(
     'images',

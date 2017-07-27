@@ -7,8 +7,8 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         knex('plants_plots').insert({
           notes: '',
-          plot_bed_id: 3,
-          plant_id: 0,
+          plot_bed_id: "2_0",
+          plant_id: 1,
           bed_id: 100
         })
       ]);

@@ -14,6 +14,13 @@ class PlantStore extends EventEmitter {
     return this.plants;
   }
 
+  getPlantById(id) {
+    return this.plants.find((p) => {
+      // console.log(p.id, id);
+      return p.id === id;
+    })
+  }
+
   getPlantImages(plant_id) {
     return this.plantImages;
   }

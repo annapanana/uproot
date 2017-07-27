@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('plants_plots', table => {
     table.increments();
     table.text('notes');
-    table.integer('plot_bed_id');
+    table.text('plot_bed_id');
     table.integer('plant_id').unsigned().notNullable()
       .references('id').inTable('plants').onDelete('CASCADE');
     table.integer('bed_id').unsigned().notNullable().references('id').inTable('beds').onDelete('CASCADE');

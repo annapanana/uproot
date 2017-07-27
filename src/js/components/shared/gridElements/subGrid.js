@@ -28,7 +28,7 @@ export default class SubGrid extends React.Component {
     return (
       <g>
         <rect class="subcell" x={xVal} y={yVal} width={100/area} height={100/area}/>
-        <image onClick={this.openModal.bind(this)} href={Settings.assetServer + this.state.plant.plant_image_url} x={xVal} y={yVal} width={100/area} height={100/area}/>
+        <image onClick={this.openModal.bind(this)} href={Settings.assetServer + this.state.plant.plant_icon} x={xVal} y={yVal} width={100/area} height={100/area}/>
       </g>
     )
   }
@@ -42,7 +42,7 @@ export default class SubGrid extends React.Component {
   }
 
   generateGrid() {
-    let area = this.state.plant.area
+    let area = this.state.plant.area;
     let columnArr = [];
     for (var i = 0; i < area; i++) {
       columnArr.push(this.generateColumn(area, this.props.xVal + (100/area)*i));

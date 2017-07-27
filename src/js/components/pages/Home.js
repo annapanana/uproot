@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom';
 import '../../../sass/components/pages/home.sass';
 import AddPlantModal from "../layout/AddPlantModal.js"
 import * as PlantActions from "../../actions/PlantActions";
+import * as GardenActions from "../../actions/GardenActions.js"
 import PlantStore from "../../stores/PlantStore";
+import GardenStore from "../../stores/GardenStore"
 import Garden from '../shared/gridElements/Garden';
 import Plants from "../layout/Plants"
 import { Button } from 'react-bootstrap';
@@ -28,6 +30,7 @@ export default class Home extends React.Component {
       isLoading: true,
       loadingError: false,
       plants: [],
+      garden: [],
       displayPlants: false,
       showAddPlantModal: false
     }
@@ -47,6 +50,7 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     PlantActions.getPlants();
+    GardenActions.getPlotsPlants();
   }
 
   serviceStart() {

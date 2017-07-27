@@ -1,6 +1,7 @@
 import React from "react";
 import SubGrid from './subGrid.js';
 import PlantStore from '../../../stores/PlantStore';
+import GardenStore from '../../../stores/GardenStore';
 
 export default class Bed extends React.Component {
   constructor(props) {
@@ -12,13 +13,11 @@ export default class Bed extends React.Component {
   }
 
 
-  getRandomPlant() {
-    return this.state.plants[Math.floor(Math.random() * this.state.plants.length)];
-  }
+  // getRandomPlant() {
+  //   return this.state.plants[Math.floor(Math.random() * this.state.plants.length)];
+  // }
 
   generateRow(xVal, yVal, plotVal) {
-    //TODO: Get Vegetable from DB for this row ID
-    let plant = this.getRandomPlant();
     let plot_id = `${this.props.bed_id}_${plotVal}`;
     return (
       <g id={plot_id}>
@@ -26,9 +25,9 @@ export default class Bed extends React.Component {
         <SubGrid
           xVal={xVal+this.props.xVal+5}
           yVal={yVal+this.props.yVal+5}
-          plant={plant}
           bed_id={this.props.bed_id}
-          plot_id={plot_id}/>
+          plot_id={plotVal}
+          />
       </g>
     )
   }

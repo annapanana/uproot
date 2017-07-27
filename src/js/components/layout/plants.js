@@ -7,7 +7,7 @@ export default class Plants extends React.Component {
     return plants.map((plant, key) => {
       return(
         <div key={key}>
-          <img src={Settings.assetServer+plant.plant_image_url}/>
+          <img src={Settings.assetServer+plant.plant_icon}/>
           <h6>{plant.plant_name}</h6>
           <p>More Information</p>
         </div>

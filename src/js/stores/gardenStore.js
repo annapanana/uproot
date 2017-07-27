@@ -23,9 +23,9 @@ class GardenStore extends EventEmitter {
   }
 
   getSinglePlot(bed_id, plot_id) {
-    //TODO does find return all matching criteria???
-    let bed = this.plots.find(bed_id);
-    return bed.find(plot_id);
+    return this.plots.find((plot) => {
+      return plot.bed_id === bed_id && plot.plot_bed_id === plot_id
+    })
   }
 
   getSinglePlotNotes(bed_id, plot_id) {
@@ -62,6 +62,12 @@ class GardenStore extends EventEmitter {
         this.plotImages = action.data;
         this.emit("plot_image_added");
         break;
+      }
+      case "RECEIVED_PLOTS_PLANTS": {
+        this.error = {},
+        this.plots = action.data;
+        this.emit("plants_plots_loaded");
+        break
       }
       case "PLOT_SERVICE_ERROR": {
         this.error = {xhr: action.xhr, textStatus: action.textStatus, errorThrown: action.errorThrown};

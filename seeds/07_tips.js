@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         knex('tips').insert({
           tip: '',
-          plant_id: 0
+          plant_id: 1
         })
       ]);
     });

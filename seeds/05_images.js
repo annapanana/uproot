@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
         knex('images').insert({
           image_url: '',
           image_description: '',
-          plant_id: 0,
+          plant_id: 1,
           plot_bed_id: 3,
           bed_id: 100
         })

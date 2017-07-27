@@ -26,7 +26,7 @@ export default class ViewModay extends React.Component {
         <br/>
         Plant Notes: {plant.notes}
         <br/>
-        <img src={Settings.assetServer + plant.plant_image_url}/>
+        <img class="plant-image" src={plant.plant_image_url}/>
         <button onClick={this.props.toggleEdit.bind(this, true)}>Edit</button>
       </div>
     )

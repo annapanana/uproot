@@ -64,7 +64,6 @@ class GardenStore extends EventEmitter {
         break;
       }
       case "RECEIVED_PLOTS_PLANTS": {
-        console.log("plants_plots_loaded");
         this.error = {},
         this.plots = action.data;
         this.emit("plants_plots_loaded");

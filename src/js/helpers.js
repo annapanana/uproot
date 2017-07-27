@@ -1,6 +1,7 @@
 import Dispatcher from "./dispatcher";
 
 export function restCall(url, method, data, startMsg, successMsg, errorMsg) {
+  console.log(method);
   if (startMsg) {
     Dispatcher.dispatch( {type: startMsg} );
   }

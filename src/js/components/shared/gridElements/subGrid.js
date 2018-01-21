@@ -65,7 +65,7 @@ export default class SubGrid extends React.Component {
       return columnArr;
     } else {
       return (
-        <image class="shovel-image" href={Settings.assetServer + "shovel.svg"}  x={this.props.xVal+10} y={this.props.yVal+10} width="50px" height="50px"/>
+        <image class="shovel-image" href={Settings.assetServer + "shovel.svg"}  x={this.props.xVal+25} y={this.props.yVal+25} width="50px" height="50px"/>
       )
     }
   }

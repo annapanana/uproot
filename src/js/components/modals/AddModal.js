@@ -14,7 +14,6 @@ export default class AddModal extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.plantData !== this.props.plantData) {
       const {plantData} = nextProps;
-      console.log(plantData);
       const formData = {
         id: plantData.id ? plantData.id : 0,
         plant_name: plantData.plant_name ? plantData.plant_name : "",
@@ -54,7 +53,6 @@ export default class AddModal extends React.Component {
 
   //TODO set area by default from form data
   render() {
-    console.log(this.state.formData);
     return (
       <Modal show={this.props.showModal} onHide={this.props.close.bind(this)}>
           <Modal.Header closeButton>

@@ -7,7 +7,6 @@ import { Button } from 'react-bootstrap';
 export default class Plants extends React.Component {
 
   displayPlants(plants) {
-    console.log("plants", plants);
     return plants.map((plant, key) => {
       // TODO set max char count for culture
       return(

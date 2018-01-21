@@ -4,6 +4,7 @@ import Bed from './bed.js'
 import AddModal from "../../modals/AddModal.js";
 import GardenModal from "../../modals/GardenModal.js";
 import GardenStore from '../../../stores/GardenStore';
+import Background from "./Background.js";
 import Snap from 'imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js';
 
 export default class Garden extends React.Component {
@@ -44,6 +45,7 @@ export default class Garden extends React.Component {
       <div class="garden-wrap">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1510 2210">
           <title>garden</title>
+          <Background columns={5} rows={5}/>
           <g class="style-group">
             <Bed xVal={0} yVal={0} rows={10} columns = {4} bed_id={100} plants={plants} openModal={this.showGardenModal}/>
             <Bed xVal={0} yVal={1200} rows={10} columns={4} bed_id={200} plants={plants} openModal={this.showGardenModal}/>

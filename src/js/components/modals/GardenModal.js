@@ -13,7 +13,6 @@ export default class GardenModal extends React.Component {
   }
 
   selectPlant(plant, plotData) {
-    console.log(plant);
     const data = {
       bed_id: plotData.bed_id,
       plot_id: plotData.plot_id,
@@ -36,7 +35,6 @@ export default class GardenModal extends React.Component {
 
   render() {
     const {plants, plotData} = this.props;
-    console.log("plot data", plotData);
     return (
       <Modal show={this.props.showModal} onHide={this.props.close.bind(this)}>
         <div class="garden-modal-wrap">

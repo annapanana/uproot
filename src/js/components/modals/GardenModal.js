@@ -12,37 +12,42 @@ export default class GardenModal extends React.Component {
     this.selectPlant = this.selectPlant.bind(this);
   }
 
-  selectPlant(plant) {
+  selectPlant(plant, plotData) {
     console.log(plant);
+    const data = {
+      bed_id: plotData.bed_id,
+      plot_id: plotData.plot_id,
+      plant_id: plant.id
+    }
+    GardenActions.addPlotPlant(data)
   }
 
-  displayPlants(plants) {
+  displayPlants(plants, plotData) {
+    // TODO add selection state to plant if already planted in garden
     return plants.map((plant, key) => {
-      console.log(plant);
       return (
-        <div key={key} class="modal-tile">
+        <div key={key} class="modal-tile" onClick={this.selectPlant.bind(this, plant, plotData)}>
           <img src={Settings.assetServer + plant.plant_icon} alt={plant.plant_name} class="icon-thumb"/>
           {plant.plant_name}
-          <Button bsStyle="primary" onClick={this.selectPlant.bind(this, plant)}>
-            Select
-          </Button>
         </div>
       )
     })
   }
 
   render() {
-    const {plants} = this.props;
-
+    const {plants, plotData} = this.props;
+    console.log(plotData);
     return (
       <Modal show={this.props.showModal} onHide={this.props.close.bind(this)}>
         <div class="garden-modal-wrap">
           <Modal.Header closeButton>
             <Modal.Title>Add Plant</Modal.Title>
+            Bed: {plotData.bed_id}
+            Plot: {plotData.plot_id}
           </Modal.Header>
           <Modal.Body>
             <div class="plant-list">
-              {this.displayPlants(plants)}
+              {this.displayPlants(plants, plotData)}
             </div>
           </Modal.Body>
         </div>

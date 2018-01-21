@@ -33,7 +33,8 @@ export default class Garden extends React.Component {
     });
   }
 
-  showGardenModal(){
+  showGardenModal(modalData){
+    this.modalData = modalData;
     this.setState({showGardenModal:true})
   }
 
@@ -61,6 +62,7 @@ export default class Garden extends React.Component {
           showModal={this.state.showGardenModal}
           close={this.closeModal}
           plants={plants}
+          plotData={this.modalData}
           />
       </div>
     )

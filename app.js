@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   // TODO Add origin validation
   res.header('Access-Control-Allow-Origin', origin);
   res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control, Pragma');
 
   // intercept OPTIONS method
@@ -46,7 +46,6 @@ app.use('/api/plants_plots', plants_plots);
 
 // Wildcard Route, Sends the Index back incase of someone being where they shouldn't.
 app.use('*', function (req, res, next) {
-  console.log("?????");
   res.sendFile('index.html', { root: path.join(__dirname, 'public') })
 })
 

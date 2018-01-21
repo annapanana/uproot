@@ -14,6 +14,7 @@ export function getPlotsPlants() {
 
 export function addPlotPlant(data) {
   // Data: bed_id, plot_bed_id, plant_id
+  console.log(data);
   Helpers.restCall(
     'plants_plots',
     'POST',

@@ -4,11 +4,12 @@ const knex = require('../knex');
 
 router.post('/', (req, res, next) => {
   const {plot_id, bed_id, plant_id} = req.body;
+  console.log(plot_id, bed_id, plant_id);
   knex('plants_plots')
     .insert(
       {
-        plot_bed_id: plot_id,
         bed_id: bed_id,
+        plot_bed_id: plot_id,
         plant_id: plant_id
       }
     )
@@ -24,6 +25,12 @@ router.post('/', (req, res, next) => {
     .catch(err => {
       next(err);
     });
+})
+
+router.put('/', (req, res, next) => {
+  console.log("PUTTING");
+  const {plot_id, bed_id, plant_id} = req.body;
+  console.log(plot_id, plant_id);
 })
 
 router.get('/', (req, res, next) => {

@@ -4,33 +4,48 @@ const knex = require('../knex');
 
 router.post('/', (req, res, next) => {
   const {plot_id, bed_id, plant_id} = req.body;
-  console.log(plot_id, bed_id, plant_id);
+  const data = {
+    bed_id: bed_id,
+    plot_bed_id: plot_id,
+    plant_id: plant_id
+  }
+
   knex('plants_plots')
-    .insert(
-      {
-        bed_id: bed_id,
-        plot_bed_id: plot_id,
-        plant_id: plant_id
-      }
-    )
-    .then(result => {
-      knex('plants_plots')
-        .then(plantsResults => {
-          res.status(200).send(plantsResults);
-        })
-        .catch(err => {
-          next(err);
-        });
+    .where('plot_bed_id', plot_id)
+    .where('bed_id', bed_id)
+    .first()
+    .then((result) => {
+        if (!result) {
+          knex('plants_plots')
+          .insert(data)
+          .then(result => {
+            knex('plants_plots')
+              .then(plantsResults => {
+                res.status(200).send(plantsResults);
+              })
+              .catch(err => {
+                next(err);
+              });
+          })
+          .catch(err => {
+            next(err);
+          });
+        } else {
+          knex('plants_plots')
+            .update(data, '*')
+            .where('plot_bed_id', plot_id)
+            .where('bed_id', bed_id)
+            .then((result) => {
+              res.status(200).send(result);
+            })
+            .catch(err => {
+              next(err);
+            });
+        }
     })
     .catch(err => {
       next(err);
     });
-})
-
-router.put('/', (req, res, next) => {
-  console.log("PUTTING");
-  const {plot_id, bed_id, plant_id} = req.body;
-  console.log(plot_id, plant_id);
 })
 
 router.get('/', (req, res, next) => {

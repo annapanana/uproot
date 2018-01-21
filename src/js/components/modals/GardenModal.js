@@ -36,7 +36,7 @@ export default class GardenModal extends React.Component {
 
   render() {
     const {plants, plotData} = this.props;
-    console.log(plotData);
+    console.log("plot data", plotData);
     return (
       <Modal show={this.props.showModal} onHide={this.props.close.bind(this)}>
         <div class="garden-modal-wrap">

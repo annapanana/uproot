@@ -25,18 +25,6 @@ export function addPlotPlant(data) {
   )
 }
 
-export function updatePlotPlant(data) {
-  // Data: bed_id, plot_bed_id, plant_id
-  Helpers.restCall(
-    'plants_plots',
-    'UPDATE',
-    data,
-    'PLOT_SERVICE_START',
-    'PLOT_PLANT_UPDATED',
-    'PLOT_SERVICE_ERROR'
-  )
-}
-
 export function addPlotNote(data) {
   // Data: bed_id, plot_id, notes
   Helpers.restCall(

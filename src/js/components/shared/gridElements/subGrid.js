@@ -1,6 +1,5 @@
 import React from "react";
 const Settings = require('Settings');
-import GridModal from "./gridModal.js";
 import GardenStore from '../../../stores/GardenStore';
 import PlantStore from '../../../stores/PlantStore';
 import '../../../../sass/components/shared/subGrid.sass'
@@ -9,18 +8,16 @@ import '../../../../sass/components/shared/subGrid.sass'
 export default class SubGrid extends React.Component {
   constructor(props) {
     super(props);
-    this.closeModal = this.closeModal.bind(this);
-    this.openModal = this.openModal.bind(this);
     this.refreshGarden = this.refreshGarden.bind(this);
 
     this.state = {
       plot: {},
       plant: {},
       bed_id: this.props.bed_id,
-      plot_id: this.props.plot_id,
-      showModal: false,
+      plot_id: this.props.plot_id
     }
   }
+
   componentWillMount() {
     GardenStore.on("plants_plots_loaded", this.refreshGarden);
     GardenStore.on("plot_plant_added", this.refreshGarden);
@@ -31,7 +28,7 @@ export default class SubGrid extends React.Component {
     GardenStore.removeListener("plot_plant_added", this.refreshGarden);
   }
 
-  refreshGarden() {
+  refreshGarden(bed_id, plot_id) {
     let singlePlot = GardenStore.getSinglePlot(this.state.bed_id, this. state.plot_id);
     if (singlePlot) {
       this.setState({
@@ -39,14 +36,6 @@ export default class SubGrid extends React.Component {
         plant: PlantStore.getPlantById(singlePlot.plant_id)
       })
     }
-  }
-
-  openModal() {
-    this.setState({ showModal: true });
-  }
-
-  closeModal() {
-    this.setState({ showModal: false });
   }
 
   generateRow(area, xVal, yVal) {
@@ -82,16 +71,16 @@ export default class SubGrid extends React.Component {
   }
 
   render() {
+    const {openModal} = this.props;
+    const modalData = {
+      plant: this.state.plant,
+      plot: this.state.plot,
+      bed_id: this.state.bed_id,
+      plot_id: this.state.plot_id
+    }
     return (
-      <g class="subgrid-wrap"  onClick={this.openModal.bind(this)}>
+      <g class="subgrid-wrap"  onClick={openModal.bind(this, modalData)}>
         {this.generateGrid()}
-        <GridModal showModal={this.state.showModal}
-          close={this.closeModal}
-          plant={this.state.plant}
-          plot={this.state.plot}
-          bed_id={this.state.bed_id}
-          plot_id={this.state.plot_id}
-          />
       </g>
     )
   }

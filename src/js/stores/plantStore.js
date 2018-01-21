@@ -43,6 +43,7 @@ class PlantStore extends EventEmitter {
       }
       case "PLANTS_LOADED": {
         this.error = {};
+        console.log("PLANTS LOADED", action.data);
         this.plants = action.data;
         this.emit("plants_loaded");
         break;

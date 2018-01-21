@@ -1,7 +1,7 @@
 import React from "react";
 import SubGrid from './subGrid.js';
 import PlantStore from '../../../stores/PlantStore';
-import GardenStore from '../../../stores/GardenStore';
+// import GardenStore from '../../../stores/GardenStore';
 
 export default class Bed extends React.Component {
   constructor(props) {
@@ -27,6 +27,7 @@ export default class Bed extends React.Component {
           yVal={yVal+this.props.yVal+5}
           bed_id={this.props.bed_id}
           plot_id={plotVal}
+          openModal={this.props.openModal}
           />
       </g>
     )

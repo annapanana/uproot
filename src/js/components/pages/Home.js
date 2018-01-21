@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import '../../../sass/components/pages/home.sass';
-import AddPlantModal from "../layout/AddPlantModal.js"
+import AddModal from "../modals/AddModal.js"
 import * as PlantActions from "../../actions/PlantActions";
 import * as GardenActions from "../../actions/GardenActions.js"
 import PlantStore from "../../stores/PlantStore";
@@ -10,7 +10,6 @@ import Garden from '../shared/gridElements/Garden';
 import Plants from "../layout/Plants"
 import { Button } from 'react-bootstrap';
 import AnimateHeight from 'react-animate-height';
-import MorphTest from '../../animtions/morphTest.js'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -20,11 +19,8 @@ export default class Home extends React.Component {
     this.serviceError = this.serviceError.bind(this);
     this.refreshPlants = this.refreshPlants.bind(this);
     this.togglePlantsDisplay = this.togglePlantsDisplay.bind(this);
-    this.closeAddPlantModal = this.closeAddPlantModal.bind(this);
-    this.openAddPlantModal = this.openAddPlantModal.bind(this);
-
-    //SVG TEST
-    this.morphTest = new MorphTest();
+    this.closePlantModal = this.closePlantModal.bind(this);
+    this.openPlantModal = this.openPlantModal.bind(this);
 
     this.state = {
       isLoading: true,
@@ -32,7 +28,8 @@ export default class Home extends React.Component {
       plants: [],
       garden: [],
       displayPlants: false,
-      showAddPlantModal: false
+      showAddPlantModal: false,
+      modalPlantData: {}
     }
   }
 
@@ -74,15 +71,16 @@ export default class Home extends React.Component {
     this.setState({displayPlants:!this.state.displayPlants})
   }
 
-  openAddPlantModal() {
-    this.setState({showAddPlantModal:true});
+  openPlantModal(plantData) {
+    this.setState({showAddPlantModal:true, modalPlantData:plantData?plantData:{}});
   }
 
-  closeAddPlantModal() {
+  closePlantModal() {
     this.setState({showAddPlantModal:false});
   }
 
   render() {
+    const {modalPlantData} = this.state;
     return (
       <div>
         <div class="home-wrap">
@@ -92,20 +90,20 @@ export default class Home extends React.Component {
             :
               <div>
                 <Button bsStyle="primary" onClick={this.togglePlantsDisplay.bind(this)}>{(this.state.displayPlants?"Hide":"Show")} Plants</Button>
-                <Button bsStyle="primary" onClick={this.openAddPlantModal.bind(this)}>Add Plant</Button>
+                <Button bsStyle="primary" onClick={this.openPlantModal.bind(this)}>Add Plant</Button>
                 <AnimateHeight
                   duration={ 500 }
-                  height={ this.state.displayPlants?"100":"0" }>
-                  <Plants plants={this.state.plants}/>
+                  height={ this.state.displayPlants?"auto":"0" }>
+                  <Plants plants={this.state.plants} openAddPlantModal={this.openPlantModal.bind(this)}/>
                 </AnimateHeight>
                 <Garden plants={this.state.plants}/>
               </div>
           }
         </div>
-        <AddPlantModal
+        <AddModal
           showModal={this.state.showAddPlantModal}
-          close={this.closeAddPlantModal}/>
-        <MorphTest/>
+          close={this.closePlantModal}
+          plantData={modalPlantData}/>
       </div>
     );
   }

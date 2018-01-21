@@ -12,6 +12,7 @@ export function getPlants() {
 }
 
 export function addPlant(data) {
+  console.log("add plant");
   // Data: area, days_to_harvest, family, harvest_info, notes, plant_image_url, plant_name, planting_info
   Helpers.restCall(
     'plants',
@@ -24,10 +25,12 @@ export function addPlant(data) {
 }
 
 export function updatePlant(data) {
+  console.log("update plant");
+  console.log("??", data);
   // Data: area, days_to_harvest, family, harvest_info, notes, plant_image_url, plant_name, planting_info
   Helpers.restCall(
     'plants',
-    'PATCH',
+    'PUT',
     data,
     'PLANT_SERVICE_START',
     'PLANTS_LOADED',

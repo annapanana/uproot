@@ -46,6 +46,7 @@ app.use('/api/plants_plots', plants_plots);
 
 // Wildcard Route, Sends the Index back incase of someone being where they shouldn't.
 app.use('*', function (req, res, next) {
+  console.log("?????");
   res.sendFile('index.html', { root: path.join(__dirname, 'public') })
 })
 

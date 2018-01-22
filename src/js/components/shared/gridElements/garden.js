@@ -3,7 +3,6 @@ import '../../../../sass/components/shared/garden.sass'
 import Bed from './bed.js'
 import AddModal from "../../modals/AddModal.js";
 import GardenModal from "../../modals/GardenModal.js";
-import GardenStore from '../../../stores/GardenStore';
 import Background from "./Background.js";
 import Snap from 'imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js';
 

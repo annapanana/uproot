@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>okra_icon</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g style="opacity: 0.5">
+        <rect width="100" height="100" style="fill: #fff"/>
+      </g>
+      <rect width="100" height="100" style="fill: #fff"/>
+      <polygon points="70 19.82 85.13 33.05 86.45 22.58 91.38 14.02 84.95 8.98 76.5 17 70 19.82" style="fill: #82a851"/>
+      <path d="M65.17,18.44,87.36,38s-32.66,34-41,38.17S10.66,91.36,10.66,91.36L8.87,86Z" style="fill: #a5dc69"/>
+      <g>
+        <path d="M91,11.75l-4-3A1.47,1.47,0,0,0,85,9c-1.14,1.42-3.92,4.65-5.43,6.64-2.25,3-12.25,2.82-12.25,2.82h0A5.62,5.62,0,0,1,70,19.83c3.73,3.42,9.45,8.54,15.13,13.22a6,6,0,0,1,1.47,1.79h0S86,24.6,86.45,22.58C86.8,21.12,90,16.1,91.38,14A1.7,1.7,0,0,0,91,11.75Z" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4px"/>
+        <path d="M91,11.75l-4-3A1.47,1.47,0,0,0,85,9c-1.14,1.42-3.92,4.65-5.43,6.64-2.25,3-12.25,2.82-12.25,2.82h0A5.62,5.62,0,0,1,70,19.83c3.73,3.42,9.45,8.54,15.13,13.22a6,6,0,0,1,1.47,1.79h0S86,24.6,86.45,22.58C86.8,21.12,90,16.1,91.38,14A1.7,1.7,0,0,0,91,11.75Z" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4px"/>
+        <path d="M37.84,62.48c-10,10.35-20.5,20.53-29,27.39" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4px"/>
+        <path d="M50.41,49.22c-1.91,2.05-3.88,4.16-5.89,6.28" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4px"/>
+        <path d="M73.78,23.25S67.1,31,57.54,41.47" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4px"/>
+        <path d="M58.34,55.5C43.08,69,24.09,84.52,10.66,91.36" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4px"/>
+        <path d="M83.79,31.94s-3.87,3.8-10,9.53" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4px"/>
+        <path d="M70,19.83c3.73,3.42,9.45,8.54,15.13,13.22a6.38,6.38,0,0,1,.44,9.29c-16.9,17.07-38.9,36.53-58.4,42.46-5.28,1.61-15.64,10.48-18.29,5.07-2.46-5,3.91-5.64,9.39-14.39C24,66.32,46.77,38.07,61.91,20.35A5.57,5.57,0,0,1,70,19.83Z" style="fill: none;stroke: #000;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4px"/>
+      </g>
+    </g>
+  </g>
+</svg>

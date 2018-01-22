@@ -11,7 +11,7 @@ class GardenStore extends EventEmitter {
   }
 
   getAllPlots() {
-    return this.plants_plots;
+    return this.plots;
   }
 
   getAllPlotsNotes() {
@@ -20,12 +20,6 @@ class GardenStore extends EventEmitter {
 
   getAllPlotsImages() {
     return this.plotImages;
-  }
-
-  getSinglePlot(bed_id, plot_id) {
-    return this.plots.find((plot) => {
-      return plot.bed_id === bed_id && plot.plot_bed_id === plot_id
-    })
   }
 
   getSinglePlotNotes(bed_id, plot_id) {
@@ -39,6 +33,11 @@ class GardenStore extends EventEmitter {
 
   handleActions(action) {
     switch(action.type) {
+      case "PLOT_SERVICE_START": {
+        this.error = {};
+        this.emit("plot_plant_service_start");
+        break;
+      }
       case "PLOT_PLANT_ADDED": {
         this.error = {};
         this.plots = action.data;

@@ -47,7 +47,6 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     PlantActions.getPlants();
-    GardenActions.getPlotsPlants();
   }
 
   serviceStart() {
@@ -64,6 +63,10 @@ export default class Home extends React.Component {
       isLoading: false,
       loadingError: false,
       plants: PlantStore.getPlants()
+    }, () => {
+      setTimeout(() => {
+        GardenActions.getPlotsPlants();
+      }, 1000)
     });
   }
 
@@ -84,7 +87,6 @@ export default class Home extends React.Component {
 
   render() {
     const {modalPlantData, plants} = this.state;
-    console.log(plants);
     return (
       <div>
         <div class="home-wrap">

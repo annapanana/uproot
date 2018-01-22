@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <title>shallots_icon</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g>
+        <g style="opacity: 0.5">
+          <rect width="100" height="100" style="fill: #fff"/>
+        </g>
+        <rect width="100" height="100" style="fill: #fff"/>
+      </g>
+      <g>
+        <path d="M62.68,28.68a7.11,7.11,0,0,1-5.6-6.87v-5.7c0-3.08-3.8-1.39-8.49-1.39S40.09,13,40.09,16.11v6.42a7,7,0,0,1-5.16,6.76C19.72,33.57,9,44.14,9,56.5,9,72.65,27.33,85.74,50,85.74S91,72.65,91,56.5C91,43.5,79.14,32.49,62.68,28.68Z" style="fill: #843d6e;stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M57.08,16.11c0,3.08-3.8,5.57-8.49,5.57s-8.49-2.49-8.49-5.57,3.8-1.39,8.49-1.39S57.08,13,57.08,16.11Z" style="fill: #843d6e;stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M57.08,20.29c0,10.78,4.12,19.12,8.81,19.12" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M40.09,20.29c0,10.78-3.93,19.12-8.63,19.12" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M45.76,78.78a24.27,24.27,0,0,1-11.33,2.79H28.85" style="fill: #843d6e;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M58.49,57.89a23.36,23.36,0,0,1-5.71,15.32" style="fill: #843d6e;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M69,49.53a23.29,23.29,0,0,1,3.64,12.54,23.59,23.59,0,0,1-.16,2.79" style="fill: #843d6e;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M82.55,60.68A23.87,23.87,0,0,1,58.49,84.35" style="fill: #843d6e;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M40.09,68.7a18.88,18.88,0,0,0,5.66-13.6" style="fill: #843d6e;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M15.24,72a20.66,20.66,0,0,0,10,2.57A22,22,0,0,0,33,73.2" style="fill: #843d6e;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M28.49,55.1a13.8,13.8,0,0,0,.28-2.79" style="fill: #843d6e;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M11.09,65.79a14.21,14.21,0,0,0,15.79-6.51" style="fill: #843d6e;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path d="M70.51,71.82A24.08,24.08,0,0,1,48.58,85.74" style="fill: #843d6e;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+      </g>
+    </g>
+  </g>
+</svg>

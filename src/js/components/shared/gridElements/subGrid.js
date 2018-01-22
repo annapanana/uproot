@@ -1,41 +1,25 @@
 import React from "react";
 const Settings = require('Settings');
-import GardenStore from '../../../stores/GardenStore';
-import PlantStore from '../../../stores/PlantStore';
 import '../../../../sass/components/shared/subGrid.sass'
-
+import PlantStore from '../../../stores/PlantStore';
 
 export default class SubGrid extends React.Component {
   constructor(props) {
     super(props);
-    this.refreshGarden = this.refreshGarden.bind(this);
 
     this.state = {
       plot: {},
-      plant: {},
+      plant: props.singlePlot ? PlantStore.getPlantById(props.singlePlot.plant_id) : {},
       bed_id: this.props.bed_id,
-      plot_id: this.props.plot_id
+      plot_id: this.props.plot_id,
     }
   }
 
-  componentWillMount() {
-    GardenStore.on("plants_plots_loaded", this.refreshGarden);
-    GardenStore.on("plot_plant_added", this.refreshGarden);
-    PlantStore.on("plants_loaded", this.refreshGarden);
-  }
-
-  componentWillUnmount() {
-    GardenStore.removeListener("plants_plots_loaded", this.refreshGarden);
-    GardenStore.removeListener("plot_plant_added", this.refreshGarden);
-    PlantStore.removeListener("plants_loaded", this.refreshGarden);
-  }
-
-  refreshGarden() {
-    let singlePlot = GardenStore.getSinglePlot(this.state.bed_id, this. state.plot_id);
-    if (singlePlot) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps !== this.props) {
       this.setState({
-        plot: singlePlot,
-        plant: PlantStore.getPlantById(singlePlot.plant_id)
+        plot: nextProps.singlePlot,
+        plant: nextProps.singlePlot ? PlantStore.getPlantById(nextProps.singlePlot.plant_id) : {}
       })
     }
   }

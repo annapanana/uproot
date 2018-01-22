@@ -61,4 +61,18 @@ router.get('/', (req, res, next) => {
     })
 })
 
+router.delete('/', (req, res, next) => {
+  const {plot_id, bed_id} = req.body;
+  knex('plants_plots')
+    .where('plot_bed_id', plot_id)
+    .where('bed_id', bed_id)
+    .del()
+    .then(result => {
+      res.status(200).send(result);
+    })
+    .catch(err => {
+      next(err);
+    });
+})
+
 module.exports = router;

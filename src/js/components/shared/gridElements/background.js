@@ -3,8 +3,6 @@ import React from "react";
 export default class Background extends React.Component {
 
   generateColumns(cols, xpos) {
-    console.log("???");
-    console.log(xpos);
     const colImg = [];
     for (var i = 0; i < cols; i++) {
       const ypos = i*250;

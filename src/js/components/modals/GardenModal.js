@@ -10,6 +10,15 @@ export default class GardenModal extends React.Component {
   constructor() {
     super();
     this.selectPlant = this.selectPlant.bind(this);
+    this.remove = this.removePlant.bind(this);
+  }
+
+  removePlant(plotData) {
+    const data = {
+      bed_id: plotData.bed_id,
+      plot_id: plotData.plot_id,
+    }
+    GardenActions.deletePlotPlant(data)
   }
 
   selectPlant(plant, plotData) {
@@ -26,8 +35,10 @@ export default class GardenModal extends React.Component {
     return plants.map((plant, key) => {
       return (
         <div key={key} class="modal-tile" onClick={this.selectPlant.bind(this, plant, plotData)}>
-          <img src={Settings.assetServer + plant.plant_icon} alt={plant.plant_name} class="icon-thumb"/>
+          <img src={"./assets/veggies/" + plant.plant_icon} alt={plant.plant_name} class="icon-thumb"/>
           {plant.plant_name}
+          <br />
+          {plant.variety}
         </div>
       )
     })
@@ -48,6 +59,9 @@ export default class GardenModal extends React.Component {
               {this.displayPlants(plants, plotData)}
             </div>
           </Modal.Body>
+          <Modal.Footer>
+            <button onClick={this.removePlant.bind(this, plotData)}>Remove Plant</button>
+          </Modal.Footer>
         </div>
       </Modal>
     )

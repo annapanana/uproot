@@ -76,11 +76,15 @@ export default class Home extends React.Component {
   }
 
   closePlantModal() {
-    this.setState({showAddPlantModal:false});
+    this.setState({
+      showAddPlantModal:false,
+      displayPlants: false
+    });
   }
 
   render() {
-    const {modalPlantData} = this.state;
+    const {modalPlantData, plants} = this.state;
+    console.log(plants);
     return (
       <div>
         <div class="home-wrap">
@@ -89,14 +93,19 @@ export default class Home extends React.Component {
               <div>Loading Widget</div>
             :
               <div>
-                <Button bsStyle="primary" onClick={this.togglePlantsDisplay.bind(this)}>{(this.state.displayPlants?"Hide":"Show")} Plants</Button>
-                <Button bsStyle="primary" onClick={this.openPlantModal.bind(this)}>Add Plant</Button>
+                <div class="header">
+                  <img src="../../../assets/header.png" />
+                  <div class="nav-buttons">
+                    <Button bsStyle="primary" onClick={this.togglePlantsDisplay.bind(this)}>{(this.state.displayPlants?"Hide":"Show")} Plants</Button>
+                    <Button bsStyle="primary" onClick={this.openPlantModal.bind(this)}>Add Plant</Button>
+                  </div>
+                </div>
                 <AnimateHeight
-                  duration={ 500 }
+                  duration={ 1000 }
                   height={ this.state.displayPlants?"auto":"0" }>
-                  <Plants plants={this.state.plants} openAddPlantModal={this.openPlantModal.bind(this)}/>
+                  <Plants plants={plants} openAddPlantModal={this.openPlantModal.bind(this)}/>
                 </AnimateHeight>
-                <Garden plants={this.state.plants}/>
+                <Garden plants={plants}/>
               </div>
           }
         </div>

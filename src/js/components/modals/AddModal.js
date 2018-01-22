@@ -15,7 +15,7 @@ export default class AddModal extends React.Component {
     if (nextProps.plantData !== this.props.plantData) {
       const {plantData} = nextProps;
       const formData = {
-        id: plantData.id ? plantData.id : 0,
+        id: plantData.id,
         plant_name: plantData.plant_name ? plantData.plant_name : "",
         scientific_name: plantData.scientific_name ? plantData.scientific_name : "",
         family: plantData.family ? plantData.family : "",
@@ -47,8 +47,8 @@ export default class AddModal extends React.Component {
   }
 
   saveData() {
-    PlantActions.updatePlant(this.state.formData);
-    this.props.close.bind(this);
+    PlantActions.addPlant(this.state.formData);
+    this.props.close();
   }
 
   //TODO set area by default from form data
@@ -85,7 +85,7 @@ export default class AddModal extends React.Component {
             </div>
             <div class="row">
               Area:
-              <select>
+              <select onChange={this.handleChange.bind(this, "area")}>
                 <option value="1">1 plant x 1 plant</option>
                 <option value="2">2 plants x 2 plants</option>
                 <option value="3">3 plants x 3 plants</option>

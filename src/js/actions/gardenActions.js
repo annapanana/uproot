@@ -14,10 +14,21 @@ export function getPlotsPlants() {
 
 export function addPlotPlant(data) {
   // Data: bed_id, plot_bed_id, plant_id
-  console.log(data);
   Helpers.restCall(
     'plants_plots',
     'POST',
+    data,
+    'PLOT_SERVICE_START',
+    'PLOT_PLANT_ADDED',
+    'PLOT_SERVICE_ERROR'
+  )
+}
+
+export function deletePlotPlant(data) {
+  // Data: bed_id, plot_id
+  Helpers.restCall(
+    'plants_plots',
+    'DELETE',
     data,
     'PLOT_SERVICE_START',
     'PLOT_PLANT_ADDED',

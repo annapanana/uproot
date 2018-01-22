@@ -28,6 +28,7 @@ export default class Bed extends React.Component {
           bed_id={this.props.bed_id}
           plot_id={plotVal}
           openModal={this.props.openModal}
+          plants={this.state.plants}
           />
       </g>
     )
@@ -50,9 +51,10 @@ export default class Bed extends React.Component {
   }
 
   render() {
+    const {rows, columns} = this.props;
     return (
-      <g>
-        {this.generateGrid(this.props.rows, this.props.columns)}
+      <g class="bed">
+        {this.generateGrid(rows, columns)}
       </g>
     )
   }

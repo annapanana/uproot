@@ -21,14 +21,16 @@ export default class SubGrid extends React.Component {
   componentWillMount() {
     GardenStore.on("plants_plots_loaded", this.refreshGarden);
     GardenStore.on("plot_plant_added", this.refreshGarden);
+    PlantStore.on("plants_loaded", this.refreshGarden);
   }
 
   componentWillUnmount() {
     GardenStore.removeListener("plants_plots_loaded", this.refreshGarden);
     GardenStore.removeListener("plot_plant_added", this.refreshGarden);
+    PlantStore.removeListener("plants_loaded", this.refreshGarden);
   }
 
-  refreshGarden(bed_id, plot_id) {
+  refreshGarden() {
     let singlePlot = GardenStore.getSinglePlot(this.state.bed_id, this. state.plot_id);
     if (singlePlot) {
       this.setState({
@@ -42,7 +44,7 @@ export default class SubGrid extends React.Component {
     return (
       <g>
         <rect class="subcell" x={xVal} y={yVal} width={100/area} height={100/area}/>
-        <image href={Settings.assetServer + this.state.plant.plant_icon} x={xVal} y={yVal} width={100/area} height={100/area}/>
+        <image href={"./assets/veggies/" + this.state.plant.plant_icon} x={xVal} y={yVal} width={100/area} height={100/area}/>
       </g>
     )
   }
